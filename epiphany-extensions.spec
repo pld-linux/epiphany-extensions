@@ -2,18 +2,18 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.4.0
-Release:	2
+Version:	1.4.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	28cdf5e3f846aab82f1acc7b5a323144
+# Source0-md5:	4ae247cd350feb8e959ed63e22853f83
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 Buildrequires:	automake
-BuildRequires:	epiphany-devel >= 1.4.0
+BuildRequires:	epiphany-devel >= 1.4.1
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.29
@@ -63,12 +63,12 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany-*/extensions/*.la
 
-%find_lang %{name}-1.2
+%find_lang %{name}-1.4
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-1.2.lang
+%files -f %{name}-1.4.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/epiphany-*/extensions/*.so*
