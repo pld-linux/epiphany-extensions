@@ -1,24 +1,25 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	0.7.1
+Version:	0.7.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8c38a481b8d3b4a70fa1016dbffe7cf
+# Source0-md5:	dea443b9ddb4f8f11f3d7419d20524e8
 Patch0:		%{name}-locale-names.patch
 URL:		http://epiphany.mozdev.org/
 BuildRequires:	autoconf
 Buildrequires:	automake
-BuildRequires:	epiphany-devel >= 1.1.8
+BuildRequires:	epiphany-devel >= 1.1.10
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.3.2
 BuildRequires:	intltool >= 0.29
 BuildRequires:	libglade2-devel >= 2.3.1
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.0
-Requires:	epiphany >= 1.1.8
+BuildRequires:	opensp-devel
+Requires:	epiphany >= 1.1.10
 Obsoletes:	epiphany-plugins <= 0.1.2
 Provides:	epiphany-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
