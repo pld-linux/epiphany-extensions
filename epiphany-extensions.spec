@@ -52,6 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/extensions/*.la
+
 %find_lang %{name}-1.0
 
 %clean
@@ -61,5 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/epiphany/extensions/*.so*
-%{_libdir}/epiphany/extensions/*.la
 %{_datadir}/%{name}
