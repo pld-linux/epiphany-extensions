@@ -5,7 +5,7 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.1/%{name}-%{version}.tar.bz2
@@ -14,7 +14,7 @@ Patch0:		%{name}-locale-names.patch
 URL:		http://epiphany.mozdev.org/
 BuildRequires:	autoconf >= 2.57
 Buildrequires:	automake
-BuildRequires:	epiphany-devel >= 1.3.2
+BuildRequires:	epiphany-devel >= 1.3.3
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.4.3
 BuildRequires:	intltool >= 0.29
