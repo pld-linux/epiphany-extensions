@@ -1,0 +1,13 @@
+--- epiphany-extensions-1.4.1/extensions/error-viewer/sgml-validator.c~	2004-09-26 16:22:39.000000000 +0000
++++ epiphany-extensions-1.4.1/extensions/error-viewer/sgml-validator.c	2004-10-09 01:06:47.957865904 +0000
+@@ -271,8 +271,8 @@
+ 	char *encoding;
+ 	char *base;
+ 	char *buf;
+-	int buf_size = 4096;
+-	int len;
++	gsize buf_size = 4096;
++	gsize len;
+ 	GIOChannel *in;
+ 	GIOChannel *out;
+ 	GIOStatus status;
