@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	c3c538e9e2f872cab30b2defef6b6de5
+# Source0-md5:	8be057ef7a37b10bdd3a3cc1df818f3a
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla-version.patch
 URL:		http://www.gnome.org/projects/epiphany/
