@@ -14,7 +14,7 @@ URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 Buildrequires:	automake
 BuildRequires:	epiphany-devel >= 1.4.0
-BuildRequires:	gnome-common
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.29
 BuildRequires:	libglade2-devel >= 1:2.4.0
@@ -46,7 +46,7 @@ mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
-%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
