@@ -1,19 +1,18 @@
-%define pname ephy-extensions
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	0.2.5
+Version:	0.6
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://savannah.nongnu.org/download/ephyplugins/gnome-2.4.pkg/%{version}/%{pname}-%{version}.tar.gz
-# Source0-md5:	68d727e8f9e39dc7b20cce4466787072
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	eb28e6834aad362da1ae07e76ed153f6
 URL:		http://epiphany.mozdev.org/
-BuildRequires:	epiphany-devel >= 1.0-2
+BuildRequires:	epiphany-devel >= 1.1.2
 BuildRequires:	gtk+2-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libxml2-devel
-Requires:	epiphany >= 1.0-2
+Requires:	epiphany >= 1.1.2
 Obsoletes:	epiphany-plugins <= 0.1.2
 Provides:	epiphany-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,7 +24,7 @@ Epiphany Extensions is a collection of extensions for Epiphany.
 Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 
 %prep
-%setup -q -n %{pname}-%{version}
+%setup -q
 
 %build
 %configure \
@@ -46,6 +45,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog
-%attr(755,root,root) %{_libdir}/epiphany/plugins/*.so*
-%{_libdir}/epiphany/plugins/*.la
-%{_datadir}/%{pname}
+%attr(755,root,root) %{_libdir}/epiphany/extensions/*.so*
+%{_libdir}/epiphany/extensions/*.la
+%{_datadir}/%{name}
