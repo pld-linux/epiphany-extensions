@@ -1,12 +1,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	0.9.0
+Version:	0.9.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	d79fef510d8ce0173f09d334973f674e
+# Source0-md5:	4a1413da4110e10c1db687ee5827540b
 Patch0:		%{name}-locale-names.patch
 URL:		http://epiphany.mozdev.org/
 BuildRequires:	autoconf >= 2.57
