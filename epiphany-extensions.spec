@@ -2,18 +2,17 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.4.4
-Release:	2
-License:	GPL
+Version:	1.4.5
+Release:	1
+License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	ebd669088598eee957a7557c3cd4ae3b
+# Source0-md5:	8e7edc694283c53bec4d128527a0ecff
 Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	epiphany-devel >= 1.4.7
+BuildRequires:	epiphany-devel >= 1.4.8
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.29
@@ -23,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	mozilla-devel >= %{minmozver}
 BuildRequires:	opensp-devel
+BuildRequires:	pkgconfig
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
 Provides:	epiphany-plugins
@@ -41,7 +41,6 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 mv po/{no,nb}.po
 
