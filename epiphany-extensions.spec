@@ -2,24 +2,25 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.4.5
+Version:	1.6.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	8e7edc694283c53bec4d128527a0ecff
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/1.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	c9f6d0e6b817120e8aec671529ad5ee8
 Patch0:		%{name}-locale-names.patch
+Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	epiphany-devel >= 1.4.8
+BuildRequires:	epiphany-devel >= 1.6.0
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeui-devel >= 2.0
+BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.11
+BuildRequires:	libxml2-devel >= 1:2.6.17
 BuildRequires:	mozilla-devel >= %{minmozver}
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
@@ -41,6 +42,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 mv po/{no,nb}.po
 
@@ -51,7 +53,6 @@ mv po/{no,nb}.po
 %{__automake}
 %configure \
 	--with-extensions=all
-
 %{__make}
 
 %install
@@ -62,13 +63,14 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany-*/extensions/*.la
 
-%find_lang %{name}-1.4
+%find_lang %{name}-1.6
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-1.4.lang
+%files -f %{name}-1.6.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/epiphany-*/extensions/*.so*
+%{_libdir}/epiphany-*/extensions/*.xml
 %{_datadir}/%{name}
