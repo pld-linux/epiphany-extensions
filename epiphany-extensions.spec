@@ -11,7 +11,7 @@ Patch0:		%{name}-locale-names.patch
 URL:		http://epiphany.mozdev.org/
 BuildRequires:	autoconf >= 2.57
 Buildrequires:	automake
-BuildRequires:	epiphany-devel >= 1.2.2
+BuildRequires:	epiphany-devel >= 1.2.6
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.29
@@ -19,7 +19,7 @@ BuildRequires:	libglade2-devel >= 1:2.3.6
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.0
 BuildRequires:	opensp-devel
-Requires:	epiphany >= 1.2.2
+Requires:	epiphany >= 1.2.6
 Obsoletes:	epiphany-plugins <= 0.1.2
 Provides:	epiphany-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
