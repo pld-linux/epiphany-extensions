@@ -22,11 +22,10 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	mozilla-devel >= %{minmozver}
 BuildRequires:	opensp-devel
-BuildRequires:	epiphany
-Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany)
+Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
-Obsoletes:	epiphany-plugins <= 0.1.2
 Provides:	epiphany-plugins
+Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # can be provided by mozilla or mozilla-embedded
