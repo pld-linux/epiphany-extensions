@@ -1,12 +1,12 @@
-diff -aurN epiphany-extensions-0.9.0.orig/configure.ac epiphany-extensions-0.9.0/configure.ac
---- epiphany-extensions-0.9.0.orig/configure.ac	2004-05-15 20:38:52.000000000 +0200
-+++ epiphany-extensions-0.9.0/configure.ac	2004-05-16 23:48:38.013514248 +0200
+diff -urN epiphany-extensions-0.9.1.orig/configure.ac epiphany-extensions-0.9.1/configure.ac
+--- epiphany-extensions-0.9.1.orig/configure.ac	2004-06-14 13:42:10.934555520 +0200
++++ epiphany-extensions-0.9.1/configure.ac	2004-06-14 13:42:24.521489992 +0200
 @@ -59,7 +59,7 @@
  dnl Internationalisation
  dnl ********************************
  
--ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nl no pl pa pt pt_BR ru sk sq sr sr@Latn sv uk wa zh_CN"
-+ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nb nl pl pa pt pt_BR ru sk sq sr sr@Latn sv uk wa zh_CN"
+-ALL_LINGUAS="bg ca cs da de el en_GB es fr hr hu it ja lt nl no pl pa pt pt_BR ru sk sq sr sr@Latn sv uk wa zh_CN"
++ALL_LINGUAS="bg ca cs da de el en_GB es fr hr hu it ja lt nb nl pl pa pt pt_BR ru sk sq sr sr@Latn sv uk wa zh_CN"
  
  GETTEXT_PACKAGE=epiphany-extensions-1.0
  AC_SUBST(GETTEXT_PACKAGE)
