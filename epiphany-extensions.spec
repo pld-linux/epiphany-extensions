@@ -1,14 +1,15 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	0.9.1
+Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	4a1413da4110e10c1db687ee5827540b
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	c3c538e9e2f872cab30b2defef6b6de5
 Patch0:		%{name}-locale-names.patch
-URL:		http://epiphany.mozdev.org/
+Patch1:		%{name}-mozilla-version.patch
+URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 Buildrequires:	automake
 BuildRequires:	epiphany-devel >= 1.2.6
@@ -33,6 +34,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 mv po/{no,nb}.po
 
