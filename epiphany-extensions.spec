@@ -3,7 +3,7 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/1.4/%{name}-%{version}.tar.bz2
@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	mozilla-devel >= %{minmozver}
 BuildRequires:	opensp-devel
+BuildRequires:	epiphany
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany)
 Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
 Obsoletes:	epiphany-plugins <= 0.1.2
