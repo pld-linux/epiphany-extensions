@@ -5,8 +5,8 @@ diff -urN aa/epiphany-extensions-0.7.1/configure.ac epiphany-extensions-0.7.1/co
  dnl Internationalisation
  dnl ********************************
  
--ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nl no pa pt pt_BR sk sq sr sr@Latn sv"
-+ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nb nl pa pt pt_BR sk sr sq sr@Latn sv"
+-ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nl no pa pt pt_BR ru sk sq sr sr@Latn sv uk wa zh_CN"
++ALL_LINGUAS="ca cs da de el en_GB es fr hr hu it ja lt nb nl pa pt pt_BR ru sk sr sq sr@Latn sv uk wa zh_CN"
  
  GETTEXT_PACKAGE=epiphany-extensions-1.0
  AC_SUBST(GETTEXT_PACKAGE)
