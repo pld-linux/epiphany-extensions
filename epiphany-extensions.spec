@@ -1,18 +1,24 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	0.7
+Version:	0.7.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	3780fd96d0acc4c6b02b310a4bfbb5f4
+# Source0-md5:	e8c38a481b8d3b4a70fa1016dbffe7cf
+Patch0:		%{name}-locale-names.patch
 URL:		http://epiphany.mozdev.org/
-BuildRequires:	epiphany-devel >= 1.1.7
-BuildRequires:	gtk+2-devel >= 2.3.1
-BuildRequires:	libglade2-devel >= 2.3.0
+BuildRequires:	autoconf
+Buildrequires:	automake
+BuildRequires:	epiphany-devel >= 1.1.8
+BuildRequires:	gnome-common
+BuildRequires:	gtk+2-devel >= 2.3.2
+BuildRequires:	intltool >= 0.29
+BuildRequires:	libglade2-devel >= 2.3.1
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.0
-Requires:	epiphany >= 1.1.7
+Requires:	epiphany >= 1.1.8
 Obsoletes:	epiphany-plugins <= 0.1.2
 Provides:	epiphany-plugins
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,10 +31,18 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-extensions=all
+
 %{__make}
 
 %install
