@@ -1,12 +1,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.6.1
-Release:	2
+Version:	1.6.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/1.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	c842fe5e0963e12bfccb8d6caa033885
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	a86d1d7e2a0878074b6add397f18dfa5
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
