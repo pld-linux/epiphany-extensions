@@ -32,7 +32,7 @@ BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
-Requires:	mozilla-firefox = %(rpm -q --qf '%{EPOCH}:%{VERSION}' mozilla-firefox)
+%requires_eq	mozilla-firefox
 %else
 Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
 %endif
