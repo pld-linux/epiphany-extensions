@@ -1,3 +1,6 @@
+# Conditinal build:
+%bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
+#
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
@@ -20,11 +23,19 @@ BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.19
+%if %{with mozilla_firefox}
+BuildRequires:	mozilla-firefox-devel
+%else
 BuildRequires:	mozilla-devel >= 5:1.7
+%endif
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
+%if %{with mozilla_firefox}
+Requires:	mozilla-firefox = %(rpm -q --qf '%{EPOCH}:%{VERSION}' mozilla-firefox)
+%else
 Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
+%endif
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
