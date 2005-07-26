@@ -15,7 +15,7 @@ Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	epiphany-devel >= 1.7.2
+BuildRequires:	epiphany-devel >= 1.7.2-3
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool >= 0.33
@@ -30,6 +30,7 @@ BuildRequires:	mozilla-devel >= 5:1.7
 %endif
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
+BuildRequires:	python-gnome-devel >= 2.11.3
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
