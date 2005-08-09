@@ -4,12 +4,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.7.3
+Version:	1.7.4
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	f9c7f260d1a777533b67b6f7ec475973
+# Source0-md5:	d175f0747254595d369aa75baa64a0a4
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
