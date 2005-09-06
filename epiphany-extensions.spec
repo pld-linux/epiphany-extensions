@@ -4,20 +4,20 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.6.4
-Release:	4
+Version:	1.8.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	0bc858d08d3f3a4609367505011787d9
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	312335e8f755995dc486d496f497175e
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	epiphany-devel >= 1.6.2
+BuildRequires:	epiphany-devel >= 1.8.0
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
@@ -30,6 +30,7 @@ BuildRequires:	mozilla-devel >= 5:1.7
 %endif
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
+BuildRequires:	python-gnome-devel >= 2.11.3
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
@@ -71,16 +72,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany-*/extensions/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/1.8/extensions/*.{la,py}
 
-%find_lang %{name}-1.6
+%find_lang %{name}-1.8
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-1.6.lang
+%files -f %{name}-1.8.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/epiphany-*/extensions/*.so*
-%{_libdir}/epiphany-*/extensions/*.xml
+%attr(755,root,root) %{_libdir}/epiphany/1.8/extensions/*.so*
+%{_libdir}/epiphany/1.8/extensions/*.py[co]
+%{_libdir}/epiphany/1.8/extensions/*.xml
 %{_datadir}/%{name}
