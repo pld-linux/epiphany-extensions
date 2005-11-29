@@ -4,12 +4,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.8.1
+Version:	1.8.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	d1c40978c89a845973ed131774fa7769
+# Source0-md5:	318418ce023ef5688e535309012591d9
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
@@ -58,6 +58,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 mv po/{no,nb}.po
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
