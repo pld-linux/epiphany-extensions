@@ -31,6 +31,7 @@ BuildRequires:	mozilla-devel >= 5:1.7
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.11.3
+BuildRequires:	rpm-pythonprov
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
