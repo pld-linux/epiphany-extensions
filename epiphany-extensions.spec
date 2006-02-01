@@ -4,18 +4,18 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.9.1
+Version:	1.9.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	fcaf7f9d85770fc28c13aaaf400e09f1
-Patch0:		%{name}-locale-names.patch
+# Source0-md5:	cbd527a45057da8d7e088d1cad721fae
+Patch0:		%{name}-m4.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.9
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	epiphany-devel >= 1.9.1
+BuildRequires:	epiphany-devel >= 1.9.
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.33
@@ -54,12 +54,10 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %setup -q
 %patch0 -p1
 
-mv po/{no,nb}.po
-
 %build
 %{__libtoolize}
 %{__intltoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
@@ -73,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/1.9/extensions/*.{la,py}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}-1.10
 
