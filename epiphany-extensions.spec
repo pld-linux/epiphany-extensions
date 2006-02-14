@@ -4,13 +4,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.9.6
+Version:	1.9.7
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	cbd527a45057da8d7e088d1cad721fae
-Patch0:		%{name}-m4.patch
+# Source0-md5:	e01b3e3f6226dd516f21a2f047f18c1e
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.9
@@ -52,7 +51,6 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
