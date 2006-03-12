@@ -1,20 +1,21 @@
 # Conditinal build:
 %bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
 #
+%define		basever	2.14
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.9.7
+Version:	2.14.0.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	e01b3e3f6226dd516f21a2f047f18c1e
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/%{basever}/%{name}-%{version}.tar.bz2
+# Source0-md5:	1b8ec450167010b25bba48295b5808cf
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.9
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	epiphany-devel >= 1.9.
+BuildRequires:	epiphany-devel >= 2.14.0
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.33
@@ -68,17 +69,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/1.9/extensions/*.{la,py}
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.{la,py}
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-%find_lang %{name}-1.10
+%find_lang %{name}-%{basever}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-1.10.lang
+%files -f %{name}-%{basever}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/epiphany/1.9/extensions/*.so*
-%{_libdir}/epiphany/1.9/extensions/[!l]*
+%attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
+%{_libdir}/epiphany/%{basever}/extensions/[!l]*
 %{_datadir}/%{name}
