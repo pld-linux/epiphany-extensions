@@ -29,6 +29,7 @@ BuildRequires:	mozilla-firefox-devel
 BuildRequires:	mozilla-devel >= 5:1.7
 %endif
 BuildRequires:	opensp-devel
+BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.12.0
 Requires(post,postun):	scrollkeeper
@@ -62,7 +63,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-extensions=all \
+	--with-extensions=really-all \
 	--disable-scrollkeeper
 %{__make}
 
