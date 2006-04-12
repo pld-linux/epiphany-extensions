@@ -10,7 +10,7 @@ Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	318418ce023ef5688e535309012591d9
+# Source0-md5:	8be9c522284b0a9d7ba2797e141cf26e
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.9
