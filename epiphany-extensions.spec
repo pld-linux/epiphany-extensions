@@ -1,28 +1,28 @@
 # Conditinal build:
 %bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
 #
+%define		basever	2.14
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	1.8.2
-Release:	3
-License:	GPL v2
-Group:		X11/Applications/Networking
+Version:	2.14.1
+Release:	1
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/1.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	318418ce023ef5688e535309012591d9
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-mozilla_includes.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake
-BuildRequires:	epiphany-devel >= 1.8.2
-BuildRequires:	gnome-common >= 2.8.0
+BuildRequires:	automake >= 1.9
+BuildRequires:	dbus-glib-devel >= 0.34
+BuildRequires:	epiphany-devel >= 2.14.1
+BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.8.3
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.19
+BuildRequires:	libxml2-devel >= 1:2.6.22
 %if %{with mozilla_firefox}
 BuildRequires:	mozilla-firefox-devel
 %else
@@ -30,8 +30,8 @@ BuildRequires:	mozilla-devel >= 5:1.7
 %endif
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-gnome-devel >= 2.11.3
-BuildRequires:	rpm-pythonprov
+BuildRequires:	python-gnome-devel >= 2.12.0
+Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
@@ -53,19 +53,17 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
-mv po/{no,nb}.po
 
 %build
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__intltoolize}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-extensions=all
+	--with-extensions=all \
+	--disable-scrollkeeper
 %{__make}
 
 %install
@@ -74,17 +72,26 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/1.8/extensions/*.{la,py}
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.{la,py}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-%find_lang %{name}-1.8
+%find_lang %{name}-%{basever}
+%find_lang %{name} --with-gnome
+cat %{name}.lang >> %{name}-%{basever}.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}-1.8.lang
+%post
+%scrollkeeper_update_post
+
+%postun
+%scrollkeeper_update_postun
+
+%files -f %{name}-%{basever}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/epiphany/1.8/extensions/*.so*
-%{_libdir}/epiphany/1.8/extensions/*.py[co]
-%{_libdir}/epiphany/1.8/extensions/*.xml
+%attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
+%{_libdir}/epiphany/%{basever}/extensions/[!l]*
 %{_datadir}/%{name}
+%{_omf_dest_dir}/%{name}/*
