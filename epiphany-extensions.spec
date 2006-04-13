@@ -1,4 +1,5 @@
-# Conditinal build:
+#
+# Conditional build:
 %bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
 #
 %define		basever	2.14
@@ -95,4 +96,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
 %{_libdir}/epiphany/%{basever}/extensions/[!l]*
 %{_datadir}/%{name}
-%{_omf_dest_dir}/%{name}/*
+%{_omf_dest_dir}/%{name}
