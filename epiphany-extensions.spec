@@ -1,13 +1,13 @@
 #
 # Conditional build:
-%bcond_with	mozilla_firefox	# build with mozilla-firefox-devel
+%bcond_without	mozilla_firefox	# build with mozilla-firefox-devel
 #
 %define		basever	2.14
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
 Version:	2.14.1
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.14/%{name}-%{version}.tar.bz2
