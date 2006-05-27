@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	mozilla_firefox	# build with mozilla-firefox-devel
+%bcond_without	mozilla_firefox	# build with mozilla instead of mozilla-firefox
 #
 %define		basever	2.14
 Summary:	Collection of extensions for Epiphany
@@ -14,7 +14,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.14/%{name}
 # Source0-md5:	3e807a83f068e41ce34c3c653a3353b6
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1.9
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.34
 BuildRequires:	epiphany-devel >= 2.14.1.1
 BuildRequires:	gnome-common >= 2.12.0
