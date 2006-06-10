@@ -1,45 +1,33 @@
-#
-# Conditional build:
-%bcond_without	mozilla_firefox	# build with mozilla instead of mozilla-firefox
-#
-%define		basever	2.14
+%define		basever	2.15
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	2.14.1.1
-Release:	2
+Version:	2.15.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	3e807a83f068e41ce34c3c653a3353b6
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	d939c9c7540ce580daaf67c7bc064fd2
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	epiphany-devel >= 2.14.1.1
+BuildRequires:	epiphany-devel >= 2.15.2
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	intltool >= 0.33
+BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.22
-%if %{with mozilla_firefox}
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	mozilla-firefox-devel
-%else
-BuildRequires:	mozilla-devel >= 5:1.7
-%endif
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.12.0
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
-%if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
-%else
-Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
-%endif
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -75,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.{la,py}
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}-%{basever}
 %find_lang %{name} --with-gnome
