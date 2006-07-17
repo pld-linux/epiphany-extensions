@@ -3,7 +3,7 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
 Version:	2.15.1
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.15/%{name}-%{version}.tar.bz2
@@ -11,20 +11,20 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.15/%{name}
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	dbus-glib-devel >= 0.34
-BuildRequires:	epiphany-devel >= 2.15.2
+BuildRequires:	dbus-glib-devel >= 0.62
+BuildRequires:	epiphany-devel >= 2.15.4
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	intltool >= 0.35
-BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.15.2
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	mozilla-firefox-devel
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-gnome-devel >= 2.12.0
+BuildRequires:	python-gnome-devel >= 2.15.4
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %requires_eq	mozilla-firefox
@@ -51,6 +51,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--with-extensions=really-all \
 	--disable-scrollkeeper
