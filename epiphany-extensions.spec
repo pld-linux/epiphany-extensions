@@ -81,6 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
-%{_libdir}/epiphany/%{basever}/extensions/[!l]*
+%{_libdir}/epiphany/%{basever}/extensions/*.ephy-extension
+%{_libdir}/epiphany/%{basever}/extensions/*.py[co]
 %{_datadir}/%{name}
 %{_omf_dest_dir}/%{name}
