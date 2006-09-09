@@ -1,30 +1,30 @@
-%define		basever	2.15
+%define		basever	2.16
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	2.15.2
-Release:	3
+Version:	2.16.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	2ec568adefdec0b59d42153d38b9357b
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	bbc9c67750380d31ad068dbd7335875a
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71-2
-BuildRequires:	epiphany-devel >= 2.15.92
+BuildRequires:	epiphany-devel >= 2.16.0
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	gtk+2-devel >= 2:2.10.3
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	mozilla-firefox-devel >= 1.5.0.6
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-gnome-devel >= 2.15.91
+BuildRequires:	python-gnome-devel >= 2.16.0
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %requires_eq	mozilla-firefox
