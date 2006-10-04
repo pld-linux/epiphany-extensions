@@ -2,25 +2,25 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
-Version:	2.16.0
+Version:	2.16.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	bbc9c67750380d31ad068dbd7335875a
+# Source0-md5:	93a8d37175dc1f173c0185c254de5c38
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71-2
-BuildRequires:	epiphany-devel >= 2.16.0
+BuildRequires:	epiphany-devel >= 2.16.1
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.3
+BuildRequires:	gtk+2-devel >= 2:2.10.6
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	mozilla-firefox-devel >= 1.5.0.6
+BuildRequires:	mozilla-firefox-devel >= 1.5.0.7
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
