@@ -27,7 +27,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.16.0
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
-%requires_eq	mozilla-firefox
+%requires_eq	mozilla-firefox-libs
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
