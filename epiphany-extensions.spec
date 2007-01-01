@@ -1,13 +1,13 @@
 #
 # Conditional build:
-%bcond_without	mozilla_firefox	# build with mozilla instead of mozilla-firefox
+%bcond_with	mozilla_firefox	# build with mozilla instead of mozilla-firefox
 #
 %define		basever	2.14
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
 Name:		epiphany-extensions
 Version:	2.14.1.1
-Release:	10
+Release:	11
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.14/%{name}-%{version}.tar.bz2
@@ -27,7 +27,7 @@ BuildRequires:	libxml2-devel >= 1:2.6.22
 %if %{with mozilla_firefox}
 BuildRequires:	mozilla-firefox-devel
 %else
-BuildRequires:	mozilla-devel >= 5:1.7
+BuildRequires:	xulrunner-devel >= 1.8.0.4
 %endif
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
@@ -38,7 +38,7 @@ Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
 %else
-Requires:	mozilla-embedded = %(rpm -q --qf '%{EPOCH}:%{VERSION}' --whatprovides mozilla-embedded)
+Requires:	xulrunner
 %endif
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
