@@ -38,7 +38,7 @@ Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
 %if %{with mozilla_firefox}
 %requires_eq	mozilla-firefox
 %else
-Requires:	xulrunner
+%requires_eq	xulrunner
 %endif
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
@@ -65,6 +65,11 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %{__automake}
 %configure \
 	--with-extensions=really-all \
+	%if %{with mozilla_firefox}
+	--with-gecko=firefox \
+	%else
+	--with-gecko=xulrunner \
+	%endif
 	--disable-scrollkeeper
 %{__make}
 
