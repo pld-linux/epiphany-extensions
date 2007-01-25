@@ -1,7 +1,4 @@
 #
-# Conditional build:
-%bcond_with	mozilla_firefox	# build with mozilla instead of mozilla-firefox
-#
 %define		basever	2.14
 Summary:	Collection of extensions for Epiphany
 Summary(pl):	Zbiór rozszerzeñ dla Epiphany
@@ -24,22 +21,14 @@ BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.22
-%if %{with mozilla_firefox}
-BuildRequires:	mozilla-firefox-devel
-%else
 BuildRequires:	xulrunner-devel >= 1.8.0.4
-%endif
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.12.0
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
-%if %{with mozilla_firefox}
-%requires_eq	mozilla-firefox
-%else
 %requires_eq	xulrunner
-%endif
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,11 +54,7 @@ Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
 %{__automake}
 %configure \
 	--with-extensions=really-all \
-	%if %{with mozilla_firefox}
-	--with-gecko=firefox \
-	%else
 	--with-gecko=xulrunner \
-	%endif
 	--disable-scrollkeeper
 %{__make}
 
