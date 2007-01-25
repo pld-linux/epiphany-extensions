@@ -20,14 +20,14 @@ BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	mozilla-firefox-devel >= 1.5.0.7
+BuildRequires:	xulrunner-devel >= 1.8.0.4
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.16.0
 Requires(post,postun):	scrollkeeper
 Requires:	epiphany = %(rpm -q --qf '%{EPOCH}:%{VERSION}' epiphany-devel)
-%requires_eq	mozilla-firefox-libs
+%requires_eq	xulrunner
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
