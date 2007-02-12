@@ -1,6 +1,6 @@
 %define		basever	2.16
 Summary:	Collection of extensions for Epiphany
-Summary(pl.UTF-8):   Zbiór rozszerzeń dla Epiphany
+Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
 Version:	2.16.1
 Release:	1
