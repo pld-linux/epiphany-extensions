@@ -1,6 +1,6 @@
 %define		basever	2.16
 Summary:	Collection of extensions for Epiphany
-Summary(pl):	Zbiór rozszerzeñ dla Epiphany
+Summary(pl.UTF-8):   ZbiÃ³r rozszerzeÅ„ dla Epiphany
 Name:		epiphany-extensions
 Version:	2.16.1
 Release:	1
@@ -38,8 +38,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Epiphany Extensions is a collection of extensions for Epiphany.
 
-%description -l pl
-Epiphany Extensions jest zbiorem rozszerzeñ dla Epiphany.
+%description -l pl.UTF-8
+Epiphany Extensions jest zbiorem rozszerzeÅ„ dla Epiphany.
 
 %prep
 %setup -q
