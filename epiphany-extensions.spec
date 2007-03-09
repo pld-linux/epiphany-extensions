@@ -1,32 +1,33 @@
-%define		basever	2.16
+%define		basever	2.17
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.16.1
-Release:	3
+Version:	2.17.92
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	93a8d37175dc1f173c0185c254de5c38
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	c2e0f2289849109170d0492dbeee270b
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	dbus-glib-devel >= 0.71-2
-BuildRequires:	epiphany-devel >= 2.16.1
+BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	epiphany-devel >= 2.17.92
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.10.6
-BuildRequires:	intltool >= 0.35
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.0
+BuildRequires:	libgnomeui-devel >= 2.17.92
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	xulrunner-devel >= 1.8.0.4
+BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-gnome-devel >= 2.16.0
+BuildRequires:	python-gnome-devel >= 2.17.92
 BuildRequires:	rpmbuild(macros) >= 1.198
+BuildRequires:	xulrunner-devel >= 1.8.0.4
 Requires(post,postun):	scrollkeeper
+Requires(post,preun):	GConf2
 %requires_eq_to	epiphany epiphany-devel
 %requires_eq	xulrunner
 Provides:	epiphany-plugins
@@ -63,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.{la,py}
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/{,libepilicious/}*.{la,py}
 
 %find_lang %{name}-%{basever}
 %find_lang %{name} --with-gnome
@@ -74,6 +75,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %scrollkeeper_update_post
+%gconf_schema_install epilicious.schemas
+%gconf_schema_install smart-bookmarks.schemas
+
+%preun
+%gconf_schema_uninstall epilicious.schemas
+%gconf_schema_uninstall smart-bookmarks.schemas
 
 %postun
 %scrollkeeper_update_postun
@@ -84,5 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
 %{_libdir}/epiphany/%{basever}/extensions/*.ephy-extension
 %{_libdir}/epiphany/%{basever}/extensions/*.py[co]
+%dir %{_libdir}/epiphany/%{basever}/extensions/libepilicious
+%{_libdir}/epiphany/%{basever}/extensions/libepilicious/*.py[co]
 %{_datadir}/%{name}
+%{_datadir}/epiphany/icons/hicolor/*/*/*.png
+%{_datadir}/epiphany/icons/hicolor/*/*/*.svg
 %{_omf_dest_dir}/%{name}
+%{_sysconfdir}/gconf/schemas/epilicious.schemas
+%{_sysconfdir}/gconf/schemas/smart-bookmarks.schemas
