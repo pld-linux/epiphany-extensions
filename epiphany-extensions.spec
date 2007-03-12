@@ -1,23 +1,23 @@
-%define		basever	2.17
+%define		basever	2.18
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.17.92
+Version:	2.18.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.17/%{name}-%{version}.tar.bz2
-# Source0-md5:	c2e0f2289849109170d0492dbeee270b
+Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	c0a6218b6a8506f204891a0769ac9553
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
-BuildRequires:	epiphany-devel >= 2.17.92
+BuildRequires:	epiphany-devel >= 2.18.0
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.17.92
+BuildRequires:	libgnomeui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	opensp-devel
