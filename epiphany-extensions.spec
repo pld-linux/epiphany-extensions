@@ -3,7 +3,7 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
 Version:	2.20.1
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.20/%{name}-%{version}.tar.bz2
@@ -32,6 +32,8 @@ Requires(post,preun):	GConf2
 %requires_eq	xulrunner
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # can be provided by mozilla or mozilla-embedded
@@ -67,6 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/{,libepilicious/}*.{la,py}
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}-%{basever}
 %find_lang %{name} --with-gnome
 cat %{name}.lang >> %{name}-%{basever}.lang
