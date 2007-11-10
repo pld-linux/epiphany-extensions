@@ -3,10 +3,10 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
 Version:	2.20.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/epiphany-extensions/2.20/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.20/%{name}-%{version}.tar.bz2
 # Source0-md5:	cd8a247d81960217df4d7c8edfe9fbf8
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
@@ -24,6 +24,8 @@ BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.20.0
+# support for --with-omf in find_lang.sh
+BuildRequires:	rpm-build >= 4.4.9-10
 BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	xulrunner-devel >= 1.8.0.4
 Requires(post,postun):	scrollkeeper
@@ -49,6 +51,9 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %prep
 %setup -q
 
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv po/sr\@{Latn,latin}.po
+
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -69,11 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/{,libepilicious/}*.{la,py}
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name}-%{basever}
-%find_lang %{name} --with-gnome
-cat %{name}.lang >> %{name}-%{basever}.lang
+%find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %scrollkeeper_update_postun
 
-%files -f %{name}-%{basever}.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
@@ -101,6 +102,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/epiphany/icons/hicolor/*/*/*.png
 %{_datadir}/epiphany/icons/hicolor/*/*/*.svg
-%{_omf_dest_dir}/%{name}
 %{_sysconfdir}/gconf/schemas/epilicious.schemas
 %{_sysconfdir}/gconf/schemas/smart-bookmarks.schemas
