@@ -24,9 +24,9 @@ BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-gnome-devel >= 2.20.0
-# support for --with-omf in find_lang.sh
-BuildRequires:	rpm-build >= 4.4.9-10
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.198
+BuildRequires:	sed >= 4.0
 BuildRequires:	xulrunner-devel >= 1.8.0.4
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
@@ -51,7 +51,7 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %prep
 %setup -q
 
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
 mv po/sr\@{Latn,latin}.po
 
 %build
