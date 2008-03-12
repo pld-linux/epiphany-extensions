@@ -1,29 +1,29 @@
-%define		basever	2.20
+%define		basever	2.22
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.20.3
-Release:	3
+Version:	2.22.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	86563cb1e7cda31d45f220ae2e185fef
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	05b131995c532f2689150c731b2f37c1
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
-BuildRequires:	epiphany-devel >= 2.20.0
+BuildRequires:	epiphany-devel >= 2.22.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.28
 BuildRequires:	opensp-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
-BuildRequires:	python-gnome-devel >= 2.20.0
+BuildRequires:	python-gnome-devel >= 2.22.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	sed >= 4.0
