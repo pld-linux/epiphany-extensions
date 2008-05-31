@@ -2,12 +2,12 @@
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.22.0
-Release:	4
+Version:	2.22.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	05b131995c532f2689150c731b2f37c1
+# Source0-md5:	9728577d63117275d8f12d529ecc866d
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
