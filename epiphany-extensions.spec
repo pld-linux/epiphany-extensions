@@ -3,11 +3,12 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
 Version:	2.22.2
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.22/%{name}-%{version}.tar.bz2
 # Source0-md5:	9728577d63117275d8f12d529ecc866d
+Patch0:		%{name}-libxul.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
@@ -27,11 +28,11 @@ BuildRequires:	python-gnome-devel >= 2.22.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	sed >= 4.0
-BuildRequires:	xulrunner-devel >= 1.8.0.4
+BuildRequires:	xulrunner-devel >= 1.9-5
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 %requires_eq_to	epiphany epiphany-devel
-%requires_eq	xulrunner
+%requires_eq_to	xulrunner xulrunner-devel
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 # sr@Latn vs. sr@latin
@@ -50,9 +51,10 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 
 %prep
 %setup -q
+%patch0 -p1
 
-sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
-mv po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
