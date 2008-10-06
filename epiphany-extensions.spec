@@ -1,24 +1,24 @@
-%define		basever	2.22
+%define		basever	2.24
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.22.2
-Release:	5
+Version:	2.24.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	9728577d63117275d8f12d529ecc866d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	b8bbe16e0bc5b2549c9bea5edf88762a
 Patch0:		%{name}-libxul.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
-BuildRequires:	epiphany-devel >= 2.22.0
-BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	epiphany-devel >= 2.24.0
+BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.22.0
+BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.28
 BuildRequires:	opensp-devel
@@ -52,9 +52,6 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
