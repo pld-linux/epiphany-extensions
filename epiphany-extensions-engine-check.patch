@@ -1,0 +1,36 @@
+--- a/configure.ac	2009/01/13 17:54:12	1799
++++ b/configure.ac	2009/01/25 15:48:38	1803
+@@ -227,15 +227,6 @@
+ done
+ IFS="$ephyext_save_ifs"
+ 
+-if test "$EPIPHANY_ENGINE" != "mozilla"; then
+- extensions=$EXTENSIONS; EXTENSIONS=
+- for ext in $extensions; do
+-  if echo "$MOZILLA_ALL_EXTENSIONS" | egrep -v "(^| )$ext(\$| )" > /dev/null; then
+-    EXTENSIONS="$EXTENSIONS $ext"
+-  fi
+- done
+-fi
+-
+ AC_SUBST([DIST_EXTENSIONS])
+ AC_SUBST([BUILD_EXTENSIONS],[$(echo $EXTENSIONS | tr ' ' '\n' | sort | uniq | tr '\n' ' ')])
+ 
+@@ -314,8 +305,6 @@
+ # Mozilla
+ # *******
+ 
+-if test "$EPIPHANY_ENGINE" = "mozilla"; then
+-
+ GECKO_INIT([MOZILLA])
+ 
+ AC_SUBST([MOZILLA])
+@@ -364,8 +353,6 @@
+ fi
+ 
+ 
+-fi # test "$EPIPHANY_ENGINE" != "webkit"
+-
+ GECKO_DEFINES
+ 
+ # *****************
