@@ -3,12 +3,13 @@ Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
 Version:	2.24.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	5d1ca2c5847d066df26657319def1d3a
 Patch0:		%{name}-libxul.patch
+Patch1:		%{name}-engine-check.patch
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9
@@ -52,6 +53,7 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
