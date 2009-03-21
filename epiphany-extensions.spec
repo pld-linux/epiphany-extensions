@@ -1,25 +1,25 @@
-%define		basever	2.24
+%define		basever	2.26
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.24.3
-Release:	3
+Version:	2.26.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	5d1ca2c5847d066df26657319def1d3a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	88f194ed26e8d1cea20b500dc4e1998e
 Patch0:		%{name}-libxul.patch
-Patch1:		%{name}-engine-check.patch
 URL:		http://www.gnome.org/projects/epiphany/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	GConf2-devel >= 2.26.0
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
-BuildRequires:	epiphany-devel >= 2.24.0
+BuildRequires:	epiphany-devel >= 2.26.0
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	gnome-doc-utils
+BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.28
 BuildRequires:	opensp-devel
@@ -53,7 +53,6 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__intltoolize}
