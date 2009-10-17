@@ -1,4 +1,4 @@
-%define		basever	2.26
+%define		basever	2.28
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
