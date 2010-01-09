@@ -13,7 +13,9 @@ BuildRequires:	GConf2-devel >= 2.28.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	epiphany-devel >= 2.28.1
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.16.0
