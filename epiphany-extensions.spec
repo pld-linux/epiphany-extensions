@@ -1,33 +1,32 @@
-%define		basever	2.29
+%define		basever	3.0
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	2.32.0
+Version:	3.0.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/2.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	f447b9fb215e023845ebb2f62f973658
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/3.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	a3472422ff93b043c32650a84e2ca552
 URL:		http://www.gnome.org/projects/epiphany/
-BuildRequires:	GConf2-devel >= 2.28.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	epiphany-devel >= 2.30.0
+BuildRequires:	epiphany-devel >= 3.0.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gtk+2-devel >= 2:2.16.0
-BuildRequires:	gtk-webkit-devel
+BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	gtk-webkit3-devel
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.28
 BuildRequires:	opensp-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.198
+BuildRequires:	rpmbuild(macros) >= 1.592
+Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
 %requires_eq_to	epiphany epiphany-devel
 Provides:	epiphany-plugins
@@ -53,7 +52,6 @@ Epiphany Extensions jest zbiorem rozszerzeń dla Epiphany.
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-extensions=really-all \
 	--disable-scrollkeeper
 %{__make}
 
@@ -63,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.la
 
 %find_lang %{name} --with-gnome --with-omf --all-name
 
@@ -71,9 +69,11 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{basever}/extensions/*.la
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%glib_compile_schemas
 %scrollkeeper_update_post
 
 %postun
+%glib_compile_schemas
 %scrollkeeper_update_postun
 
 %files -f %{name}.lang
@@ -82,5 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/*.so*
 %{_libdir}/epiphany/%{basever}/extensions/*.ephy-extension
 %{_datadir}/%{name}
+%{_datadir}/glib-2.0/schemas/org.gnome.epiphanyextensions.gschema.xml
 %{_datadir}/epiphany/icons/hicolor/*/*/*.png
 %{_datadir}/epiphany/icons/hicolor/*/*/*.svg
