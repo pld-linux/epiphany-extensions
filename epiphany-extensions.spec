@@ -14,7 +14,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= 0.34
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	epiphany-devel >= 3.0.0
+BuildRequires:	epiphany-devel >= 3.4.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gnome-common >= 2.24.0
@@ -30,7 +30,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.592
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
-%requires_eq_to	epiphany epiphany-devel
+Requires:	epiphany >= 3.4.0
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 # sr@Latn vs. sr@latin
