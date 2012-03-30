@@ -1,13 +1,13 @@
-%define		basever	3.2
+%define		basever	3.4
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	3.2.0
-Release:	2
+Version:	3.4.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	abe7a73d7be0414a2ea0c0b634f12093
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/3.4/%{name}-%{version}.tar.xz
+# Source0-md5:	84eb15907ceb410030b00aacb6e5ff35
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -85,8 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/ui
 %{_datadir}/glib-2.0/schemas/org.gnome.epiphanyextensions.gschema.xml
-%{_datadir}/epiphany/icons/hicolor/*/*/*.png
-%{_datadir}/epiphany/icons/hicolor/*/*/*.svg
+%{_datadir}/epiphany/icons
 
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/libactionsextension.so
 %{_libdir}/epiphany/%{basever}/extensions/actions.ephy-extension
@@ -95,14 +94,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/libadblockextension.so
 %{_libdir}/epiphany/%{basever}/extensions/adblock.ephy-extension
-%{_datadir}/%{name}/adblock-patterns
 %{_datadir}/%{name}/ui/adblock.ui
 
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/libautoreloadextension.so
 %{_libdir}/epiphany/%{basever}/extensions/auto-reload.ephy-extension
-
-%attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/libcertificatesextension.so
-%{_libdir}/epiphany/%{basever}/extensions/certificates.ephy-extension
 
 %attr(755,root,root) %{_libdir}/epiphany/%{basever}/extensions/libextensionsmanageruiextension.so
 %{_libdir}/epiphany/%{basever}/extensions/extensions-manager-ui.ephy-extension
