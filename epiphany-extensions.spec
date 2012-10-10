@@ -1,20 +1,20 @@
-%define		basever	3.4
+%define		basever	3.6
 Summary:	Collection of extensions for Epiphany
 Summary(pl.UTF-8):	Zbiór rozszerzeń dla Epiphany
 Name:		epiphany-extensions
-Version:	3.4.0
+Version:	3.6.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	84eb15907ceb410030b00aacb6e5ff35
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	9bc0c6c65f03a52f681c22ec9ccc0571
 URL:		http://www.gnome.org/projects/epiphany/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= 0.34
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	epiphany-devel >= 3.4.0
+BuildRequires:	epiphany-devel >= 3.6.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gnome-common >= 2.24.0
@@ -30,7 +30,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.592
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	scrollkeeper
-Requires:	epiphany >= 3.4.0
+Requires:	epiphany >= 3.6.0
 Provides:	epiphany-plugins
 Obsoletes:	epiphany-plugins <= 0.1.2
 # sr@Latn vs. sr@latin
